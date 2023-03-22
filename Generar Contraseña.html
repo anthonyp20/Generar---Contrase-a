@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generador de contraseñas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: #3e8e41;
+    }
+    
+    p {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generar contraseña aleatoria</h1>
+  <p>Haga clic en el botón para generar una contraseña aleatoria:</p>
+  <button onclick="generatePassword()">Generar contraseña</button>
+  <p id="password"></p>
+  
+  <script>
+    function generatePassword() {
+      var length = 12; // longitud de la contraseña
+      var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+"; // caracteres posibles
+      var password = "";
+      for (var i = 0, n = charset.length; i < length; ++i) {
+        password += charset.charAt(Math.floor(Math.random() * n));
+      }
+      document.getElementById("password").innerHTML = password;
+    }
+  </script>
+</body>
+</html>
